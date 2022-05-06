@@ -1,4 +1,5 @@
 from DB.connection import DAO
+import functions
 
 
 def PrincipalMenu():
@@ -28,6 +29,24 @@ def PrincipalMenu():
 
 def executeOption(option):
     dao = DAO()
+
+    if option == 1:
+        try:
+            assets = dao.ShowAssets()
+            if len(assets)>0:
+                function.showAssets(assets)
+            else:
+                print("No assets found")
+        except:
+            print("Error")
+    elif option == 2:
+        print("Buy Assets")
+    elif option == 3:
+        print("Update Assets")
+    elif option == 4:
+        print("Sell Assets")
+    else:
+        print("Wrong option")
 
 
 PrincipalMenu()
