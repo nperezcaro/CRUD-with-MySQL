@@ -1,5 +1,5 @@
 def showAssets(assets):
-    print("Assets: ")
+    print("\nAssets: \n")
     counter = 1
     for asset in assets:
         data = "{0}. Ticker: {1} | Quantity: {2}"
