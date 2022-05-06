@@ -10,8 +10,8 @@ def PrincipalMenu():
             print("------PRINCIPAL MENU---------")
             print("1 - Show Assets")
             print("2 - Buy Assets")
-            print("3 - Update Assets")
-            print("4 - Sell Assets")
+            print("3 - Sell Assets")
+            print("4 - Modify Assets")
             print("5 - Exit")
             print("------------------------------")
             option = int(input("Select an option: "))
@@ -46,9 +46,9 @@ def executeOption(option):
         except:
             print("Error")
     elif option == 3:
-        print("Update Assets")
-    elif option == 4:
         print("Sell Assets")
+    elif option == 4:
+        print("Modify Assets")
     else:
         print("Wrong option")
 
