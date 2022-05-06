@@ -1,3 +1,5 @@
+from DB.connection import DAO
+
 
 def PrincipalMenu():
     continue_ = True
@@ -25,7 +27,7 @@ def PrincipalMenu():
 
 
 def executeOption(option):
-    print(option)
+    dao = DAO()
 
 
 PrincipalMenu()
