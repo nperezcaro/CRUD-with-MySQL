@@ -40,7 +40,11 @@ def executeOption(option):
         except:
             print("Error")
     elif option == 2:
-        print("Buy Assets")
+        asset = functions.askDataAssetBuy()
+        try:
+            dao.BuyAssets(asset)
+        except:
+            print("Error")
     elif option == 3:
         print("Update Assets")
     elif option == 4:

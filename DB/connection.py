@@ -23,4 +23,15 @@ class DAO():
                 results = cursor.fetchall()
                 return results
             except Error as ex:
-                print("Error al intentar la conexión: {a}".format(ex))
+                print("Error trying to connect: {a}".format(ex))
+
+    def BuyAssets(self, asset):
+        if self.connection.is_connected():
+            try:
+                cursor = self.connection.cursor()
+                query = "INSERT INTO assets (Ticker, Quantity) VALUES ('{0}', '{1}')"
+                cursor.execute(query.format(asset[0], asset[1]))
+                self.connection.commit()
+                print("¡Asset purchased! \n")
+            except Error as ex:
+                print("Error trying to connect: {a}".format(ex))
