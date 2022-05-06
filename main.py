@@ -34,7 +34,7 @@ def executeOption(option):
         try:
             assets = dao.ShowAssets()
             if len(assets)>0:
-                function.showAssets(assets)
+                functions.showAssets(assets)
             else:
                 print("No assets found")
         except:

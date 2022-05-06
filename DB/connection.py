@@ -7,12 +7,11 @@ class DAO():
     def __init__(self):
         try:
             self.connection=mysql.connector.connect(
-                host = 'localhost',
-                port = 3306,
-                user = 'root',
-                passwd = 'Tobby2019',
-                database = 'portfolio',
-            )
+                host = "localhost", 
+                user = "root", 
+                passwd = "Tobby2019", 
+                database = "portfolio"
+                )
         except Error as ex:
             print("Error al intentar la conexión: {a}".format(ex))
 
