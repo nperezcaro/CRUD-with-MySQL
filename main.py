@@ -62,7 +62,9 @@ def executeOption(option):
             else:
                 print("No assets found")
         except:
-            print("Invalid option")
+            print("Error")
+    else:
+        print("Invalid option")
 
 
 PrincipalMenu()
