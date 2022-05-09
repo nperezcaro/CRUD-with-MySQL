@@ -32,6 +32,17 @@ class DAO():
                 query = "INSERT INTO assets (Ticker, Quantity) VALUES ('{0}', '{1}')"
                 cursor.execute(query.format(asset[0], asset[1]))
                 self.connection.commit()
-                print("¡Asset purchased! \n")
+                print("¡Asset(s) purchased! \n")
             except Error as ex:
                 print("Error trying to connect: {a}".format(ex))
+
+    def deleteAsset(self, TickerDelete):
+        if self.connection.is_connected():
+            try:
+                cursor = self.connection.cursor()
+                query = "DELETE FROM assets WHERE Ticker = '{0}' LIMIT 1"
+                cursor.execute(query.format(TickerDelete))
+                self.connection.commit()
+                print("¡Asset(s) deleted! \n")
+            except Error as ex:
+                print("Error trying to connect: {a}".format(ex)) 

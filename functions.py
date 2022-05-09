@@ -14,3 +14,19 @@ def askDataAssetBuy():
 
     asset = (Ticker, Quantity)
     return asset
+
+
+def askDataAssetDelete(assets):
+    showAssets(assets)
+    TickerExists = False
+
+    TickerDelete = input("Insert the ticker: ")
+    for asset in assets:
+        if asset[0] == TickerDelete:
+            TickerExists = True
+            break
+
+    if not TickerExists:
+        TickerDelete = ""
+
+    return TickerDelete

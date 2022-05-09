@@ -46,11 +46,23 @@ def executeOption(option):
         except:
             print("Error")
     elif option == 3:
-        print("Sell Assets")
+        try:
+            pass
+        except:
+            print("Error")
     elif option == 4:
-        print("Modify Assets")
-    else:
-        print("Wrong option")
+        try:
+            assets = dao.ShowAssets()
+            if len(assets)>0:
+                TickerDelete = functions.askDataAssetDelete(assets)
+                if not (TickerDelete == ""):
+                    dao.deleteAsset(TickerDelete)
+                else:
+                    print("Ticker has not been found. \n")
+            else:
+                print("No assets found")
+        except:
+            print("Invalid option")
 
 
 PrincipalMenu()
