@@ -15,6 +15,12 @@ def askDataAssetBuy():
     asset = (Ticker, Quantity)
     return asset
 
+def askDataAssetSell():
+    Ticker = input("Insert the ticker: ")
+    Quantity_s = int(input("Insert the quantity to be sold: "))
+
+    asset = (Ticker, Quantity_s)
+    return asset
 
 def askDataAssetDelete(assets):
     showAssets(assets)

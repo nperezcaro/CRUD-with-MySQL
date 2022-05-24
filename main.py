@@ -47,7 +47,12 @@ def executeOption(option):
             print("Error")
     elif option == 3:
         try:
-            pass
+            assets = dao.ShowAssets()
+            if len(assets)>0:
+                asset = functions.askDataAssetSell()
+                dao.SellAssets(asset)
+            else:
+                print("Ticker of the asset to be sold not found... \n")
         except:
             print("Error")
     elif option == 4:

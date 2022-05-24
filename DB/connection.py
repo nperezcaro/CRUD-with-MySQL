@@ -36,6 +36,24 @@ class DAO():
             except Error as ex:
                 print("Error trying to connect: {a}".format(ex))
 
+    def SellAssets(self, asset):
+        if self.connection.is_connected():
+            try:
+                cursor = self.connection.cursor()
+                query_1 = "SET @sell = {0};".format(asset[1])
+                query_2 = "SET @Quantity_0 = (SELECT Quantity FROM assets WHERE Ticker = '{0}');".format(asset[0])
+                query_3 = "UPDATE assets SET Quantity = @Quantity_0 - @sell WHERE Ticker = '{0}' LIMIT 1;".format(asset[0])
+
+                cursor.execute(query_1)
+                cursor.execute(query_2)
+                cursor.execute(query_3)
+
+                self.connection.commit()
+
+                print("¡Asset(s) sold! \n")
+            except Error as ex:
+                print("Error trying to connect: {a}".format(ex))
+
     def deleteAsset(self, TickerDelete):
         if self.connection.is_connected():
             try:
@@ -45,4 +63,4 @@ class DAO():
                 self.connection.commit()
                 print("¡Asset(s) deleted! \n")
             except Error as ex:
-                print("Error trying to connect: {a}".format(ex)) 
+                print("Error trying to connect: {a}".format(ex))
