@@ -9,7 +9,7 @@ class DAO():
             self.connection=mysql.connector.connect(
                 host = "localhost", 
                 user = "root", 
-                passwd = "Tobby2019", 
+                passwd = "notarealpassword", 
                 database = "portfolio"
                 )
         except Error as ex:
