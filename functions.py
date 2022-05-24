@@ -36,3 +36,10 @@ def askDataAssetDelete(assets):
         TickerDelete = ""
 
     return TickerDelete
+
+def askDataExistingAssetBuy():
+    Ticker = input("Insert the ticker: ")
+    Quantity = int(input("Insert the quantity: "))
+
+    asset = (Ticker, Quantity)
+    return asset

@@ -9,16 +9,17 @@ def PrincipalMenu():
         while(not correctOption):
             print("------PRINCIPAL MENU---------")
             print("1 - Show Assets")
-            print("2 - Buy Assets")
+            print("2 - Buy New Assets")
             print("3 - Sell Assets")
             print("4 - Modify Assets")
-            print("5 - Exit")
+            print("5 - Buy [More] Existing Assets")
+            print("6 - Exit")
             print("------------------------------")
             option = int(input("Select an option: "))
 
-            if option <1 or option>5:
+            if option <1 or option>6:
                 print("Option selected doesn't exist, please select a correct option.")
-            elif option == 5:
+            elif option == 6:
                 continue_ = False
                 print("Thanks for using this system")
                 break
@@ -66,6 +67,15 @@ def executeOption(option):
                     print("Ticker has not been found. \n")
             else:
                 print("No assets found")
+        except:
+            print("Error")
+    elif option == 5:
+        try:
+            assets = dao.ShowAssets()
+            if len(assets)>0:
+                functions.showAssets(assets)
+                asset = functions.askDataExistingAssetBuy()
+                dao.BuyExistingAssets(asset)
         except:
             print("Error")
     else:
